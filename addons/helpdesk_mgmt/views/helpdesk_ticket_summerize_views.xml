@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+
+    <record id="helpdesk_ticket_sla" model="ir.ui.view">
+        <field name="name">view_helpdesk_summerize.graph</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="name" type = "row"  />
+                <field name="sla_id" type = "row"  />
+                
+            </graph>
+            </field>
+    </record>
+
+    
+
+</odoo>
+
+
