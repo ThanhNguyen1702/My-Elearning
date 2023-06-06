@@ -27,10 +27,19 @@ class HelpdeskTeam(models.Model):
         string="Company",
         default=lambda self: self.env.company,
     )
+    
+    def _get_manager_group_ids(self):
+        group_name = "helpdesk_Employee" 
+        groups = self.env['res.groups'].search([('name', 'like', group_name)])
+        return groups.mapped('id')
+
+
+
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="Team Leader",
         check_company=True,
+        # domain = "[('group_id','in', _get_manager_group_ids)]"
     )
     alias_id = fields.Many2one(
         comodel_name="mail.alias",
